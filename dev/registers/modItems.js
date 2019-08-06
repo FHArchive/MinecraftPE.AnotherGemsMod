@@ -54,7 +54,7 @@ var ArmorProperties = {
 };
 
 for (var index = 0; index < GEMS_LEN; index++){
-    var gem = GEMS[index]
+    var gem = GEMS[index];
 
     // Gem item
     IDRegistry.genItemID(gem);
@@ -67,14 +67,14 @@ for (var index = 0; index < GEMS_LEN; index++){
 
     ToolAPI.addToolMaterial(gem, {durability: ToolProperties[gem].durability, level: ToolProperties[gem].level, efficiency: ToolProperties[gem].efficiency, damage: ToolProperties[gem].damage, enchantability: ToolProperties[gem].enchantability});
 
-    for (var tool_index = 0; tool_index < TOOLS_LEN; tool_index++){
-        var type = TOOLS[tool_index];
-        var ITEM_ID_NAME = createIDName(gem, type);
+    for (var toolIndex = 0; toolIndex < TOOLS_LEN; toolIndex++){
+        var tType = TOOLS[toolIndex];
+        var TOOL_ID_NAME = createIDName(gem, tType);
 
         // Create the tool item 
-        IDRegistry.genItemID(ITEM_ID_NAME);
-        Item.createItem(ITEM_ID_NAME, createNameReadable(gem, type), {name: createTexName(gem, type), meta: 0}, {stack: 1});
-        ToolAPI.setTool(ItemID[ITEM_ID_NAME], gem, ToolType[type]);
+        IDRegistry.genItemID(TOOL_ID_NAME);
+        Item.createItem(TOOL_ID_NAME, createNameReadable(gem, tType), {name: createTexName(gem, tType), meta: 0}, {stack: 1});
+        ToolAPI.setTool(ItemID[TOOL_ID_NAME], gem, ToolType[tType]);
 
         
         
@@ -84,22 +84,22 @@ for (var index = 0; index < GEMS_LEN; index++){
     
     // Armor 
 
-    for (var armor_index = 0; armor_index < ARMOR_LEN; armor_index++){
-        var type = ARMOR[armor_index];
-        var armorType = type;
+    for (var armorIndex = 0; armorIndex < ARMOR_LEN; armorIndex++){
+        var aType = ARMOR[armorIndex];
+        var armorType = aType;
         // For compatibility with my naming conventions 
-        if (type === "helm"){
+        if (aType === "helm"){
             armorType = "helmet";
         }
-        if (type === "chest"){
+        if (aType === "chest"){
             armorType = "chestplate";
         }
 
-        var ITEM_ID_NAME = createIDName(gem, type);
+        var ARMOR_ID_NAME = createIDName(gem, aType);
 
         // Create the armor item 
-        IDRegistry.genItemID(ITEM_ID_NAME);
-        Item.createArmorItem(ITEM_ID_NAME, createNameReadable(gem, type), {name: createTexName(gem, type)}, {type: armorType, armor: ArmorProperties[gem][type].armor, durability: ArmorProperties[gem].durability * ARMOR_MAX_DAM_RED[type], texture: ArmorProperties[gem][type].texture});
+        IDRegistry.genItemID(ARMOR_ID_NAME);
+        Item.createArmorItem(ARMOR_ID_NAME, createNameReadable(gem, aType), {name: createTexName(gem, aType)}, {type: armorType, armor: ArmorProperties[gem][aType].armor, durability: ArmorProperties[gem].durability * ARMOR_MAX_DAM_RED[aType], texture: ArmorProperties[gem][aType].texture});
 
         
 

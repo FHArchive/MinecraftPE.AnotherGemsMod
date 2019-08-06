@@ -94,11 +94,11 @@ TileEntity.registerPrototype(BlockID.agmLamp, {
 	
 	redstone: function(signal){
 		if(!this.data.inverted && signal.power){
-			swapBlock(this, "agmLampInv", false)
+			swapBlock(this, "agmLampInv", false);
 		
 		}
 		if(this.data.inverted && !signal.power){
-			swapBlock(this, "agmLampInv", true)
+			swapBlock(this, "agmLampInv", true);
 			
 		}	
 	},
@@ -117,11 +117,11 @@ TileEntity.registerPrototype(BlockID.agmLampInv, {
 		
 	redstone: function(signal){
 		if(!this.data.inverted && !signal.power){
-			swapBlock(this, "agmLamp", false)
+			swapBlock(this, "agmLamp", false);
 
 		}
 		if(this.data.inverted && signal.power){
-			swapBlock(this, "agmLamp", true)
+			swapBlock(this, "agmLamp", true);
 
 		}
 			

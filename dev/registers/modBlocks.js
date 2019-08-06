@@ -3,29 +3,29 @@ registers/modBlock.js generate the block forms of the gems: block and bricks
 */
 
 for (var index = 0; index < GEMS_LEN; index++){
-    var gem = GEMS[index]
+    var gem = GEMS[index];
     
-    // Generate block
-    var BLOCK_ID_NAME = createIDName(gem, "block");
-    IDRegistry.genBlockID(BLOCK_ID_NAME);
-    Block.createBlock(BLOCK_ID_NAME, [
-        {name: createNameReadable(gem, "block"), texture: [[createTexName(gem, "block"), 0]], inCreative: true}
-    ], "opaque");
-    ToolAPI.registerBlockMaterial(BlockID[BLOCK_ID_NAME], "stone", 2);
-    Block.setDestroyTime(BlockID[BLOCK_ID_NAME], 3);
-    Block.setDestroyLevel(BLOCK_ID_NAME, 2);
-    
+   
+    /*
+    Generate block and bricks
 
-    // Generate bricks 
-    var BLOCK_ID_NAME = createIDName(gem, "bricks");
-    IDRegistry.genBlockID(BLOCK_ID_NAME);
-    Block.createBlock(BLOCK_ID_NAME, [
-        {name: createNameReadable(gem, "bricks"), texture: [[createTexName(gem, "bricks"), 0]], inCreative: true}
-    ], "opaque");
-    ToolAPI.registerBlockMaterial(BlockID[BLOCK_ID_NAME], "stone", 2);
-    Block.setDestroyTime(BlockID[BLOCK_ID_NAME], 3);
-    Block.setDestroyLevel(BLOCK_ID_NAME, 2);
-    
+    They have the same properties so for each gem, for each type (block, bricks)
+    generate a block for that gem of said type and register it 
+
+    */
+    var TYPES = ["block", "bricks"];
+    var TYPES_LEN = TYPES.length;
+    for (var typeIndex = 0; typeIndex < TYPES_LEN; typeIndex++){
+        var TYPE = TYPES[typeIndex]
+        var BLOCK_ID_NAME = createIDName(gem, TYPE);
+        IDRegistry.genBlockID(BLOCK_ID_NAME);
+        Block.createBlock(BLOCK_ID_NAME, [
+            {name: createNameReadable(gem, TYPE), texture: [[createTexName(gem, TYPE), 0]], inCreative: true}
+        ], "opaque");
+        ToolAPI.registerBlockMaterial(BlockID[BLOCK_ID_NAME], "stone", 2);
+        Block.setDestroyTime(BlockID[BLOCK_ID_NAME], 3);
+        Block.setDestroyLevel(BLOCK_ID_NAME, 2);
+    }
 
 }
 
