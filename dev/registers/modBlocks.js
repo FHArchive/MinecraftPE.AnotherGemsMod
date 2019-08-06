@@ -16,7 +16,7 @@ for (var index = 0; index < GEMS_LEN; index++){
     var TYPES = ["block", "bricks"];
     var TYPES_LEN = TYPES.length;
     for (var typeIndex = 0; typeIndex < TYPES_LEN; typeIndex++){
-        var TYPE = TYPES[typeIndex]
+        var TYPE = TYPES[typeIndex];
         var BLOCK_ID_NAME = createIDName(gem, TYPE);
         IDRegistry.genBlockID(BLOCK_ID_NAME);
         Block.createBlock(BLOCK_ID_NAME, [

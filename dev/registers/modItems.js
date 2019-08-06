@@ -120,18 +120,18 @@ Callback.addCallback("PreLoaded", function(){
 
         // Tools
         for (var toolIndex = 0; toolIndex < TOOLS_LEN; toolIndex++){
-            var type = TOOLS[toolIndex]
+            var tcType = TOOLS[toolIndex];
             // Create the recipe for the tool 
-            Recipes.addShaped({id: ItemID[createIDName(gem, type)], count: 1, data: 0}, TOOLS_RECIPES[type], ["a", ItemID[gem], 0, "b", 280, 0]);
+            Recipes.addShaped({id: ItemID[createIDName(gem, tcType)], count: 1, data: 0}, TOOLS_RECIPES[tcType], ["a", ItemID[gem], 0, "b", 280, 0]);
         }
 
         // Armor 
         for (var armorIndex = 0; armorIndex < ARMOR_LEN; armorIndex++){
-            var type = ARMOR[armorIndex]
+            var acType = ARMOR[armorIndex];
             // Create the recipe for the armor 
-            Recipes.addShaped({id: ItemID[createIDName(gem, type)], count: 1, data: 0}, ARMOR_RECIPES[type], ["x", ItemID[gem], 0]);
+            Recipes.addShaped({id: ItemID[createIDName(gem, acType)], count: 1, data: 0}, ARMOR_RECIPES[acType], ["x", ItemID[gem], 0]);
 
         }
     }
-})
+});
 
