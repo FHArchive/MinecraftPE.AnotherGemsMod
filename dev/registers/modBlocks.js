@@ -34,10 +34,10 @@ Callback.addCallback("PreLoaded", function(){
     for (var index = 0; index < GEMS_LEN; index++){
         var gem = GEMS[index]
         // Block
-        Recipes.addShaped({id: BlockID[createIDName(gem, "block")], count: 1, data: 0}, ["xxx", "xxx", "xxx"], ['x', ItemID[gem], 0]);
+        Recipes.addShaped({id: BlockID[createIDName(gem, "block")], count: 1, data: 0}, ["xxx", "xxx", "xxx"], ["x", ItemID[gem], 0]);
 
         // Bricks
-        Recipes.addShaped({id: BlockID[createIDName(gem, "bricks")], count: 1, data: 0}, ["xx", "xx"], ['x', BlockID[createIDName(gem, "block")], 0]);
+        Recipes.addShaped({id: BlockID[createIDName(gem, "bricks")], count: 1, data: 0}, ["xx", "xx"], ["x", BlockID[createIDName(gem, "block")], 0]);
 
         
     }

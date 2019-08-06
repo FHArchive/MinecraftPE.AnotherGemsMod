@@ -12,7 +12,7 @@ Block.createBlock("agmLamp", [
 	{name: "Galaxite Lamp", texture: [["galaxite_lamp", 0]], inCreative: true},
 	{name: "Lonsdaleite Lamp", texture: [["lonsdaleite_lamp", 0]], inCreative: true},
 	{name: "Zircon Lamp", texture: [["zircon_lamp", 0]], inCreative: true},
-	{name: "Zirconia Lamp", texture: [["zirconia_lamp", 0]], inCreative: true},
+	{name: "Zirconia Lamp", texture: [["zirconia_lamp", 0]], inCreative: true}
 	
 ], "opaque");
 
@@ -22,7 +22,7 @@ Block.createBlock("agmLampInv", [
 	{name: "Galaxite Inverted Lamp", texture: [["galaxite_lamp_on", 0]], inCreative: true},
 	{name: "Lonsdaleite Inverted Lamp", texture: [["lonsdaleite_lamp_on", 0]], inCreative: true},
 	{name: "Zircon Inverted Lamp", texture: [["zircon_lamp_on", 0]], inCreative: true},
-	{name: "Zirconia Inverted Lamp", texture: [["zirconia_lamp_on", 0]], inCreative: true},
+	{name: "Zirconia Inverted Lamp", texture: [["zirconia_lamp_on", 0]], inCreative: true}
 	
 ], "lamp");
 
@@ -39,18 +39,18 @@ https://www.digminecraft.com/lists/item_id_list_pe.php
 */
 Callback.addCallback("PreLoaded", function(){
 	for(var i = 0; i < 5; i++){
-        var gem = GEMS[i]
+        var gem = GEMS[i];
 		Recipes.addShaped({id: BlockID.agmLamp, count: 1, data: i}, [
             "xxx",
             "xrx",
             "xxx"
-		], ['x', ItemID[gem], 0, 'r', 331, 0]);
+		], ["x", ItemID[gem], 0, "r", 331, 0]);
 		
 		Recipes.addShaped({id: BlockID.agmLampInv, count: 1, data: i}, [
 			"xxx",
             "xrx",
             "xxx"
-		], ['x', ItemID[gem], 0, 'r', 76, 0]);
+		], ["x", ItemID[gem], 0, "r", 76, 0]);
 	}
 });
 

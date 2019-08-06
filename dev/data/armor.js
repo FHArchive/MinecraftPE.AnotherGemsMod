@@ -2,8 +2,8 @@
 data/armor.js holds data on armor in the mod
 */
 
-const ARMOR = ["helm", "chest", "leggings", "boots"]
-const ARMOR_LEN = ARMOR.length
+const ARMOR = ["helm", "chest", "leggings", "boots"];
+const ARMOR_LEN = ARMOR.length;
 const ARMOR_RECIPES = {
     helm : [
         "xxx",
@@ -23,11 +23,11 @@ const ARMOR_RECIPES = {
         "x x",
         "x x"
     ]
-}
+};
 
 const ARMOR_MAX_DAM_RED = {
     helm: 11,
     chest: 16,
     leggings: 15,
     boots: 13
-}
+};
