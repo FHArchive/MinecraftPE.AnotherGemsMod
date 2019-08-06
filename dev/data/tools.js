@@ -12,8 +12,8 @@ const TOOLS_RECIPES = {
     ],
     shovel: [
         "a",
-	    "b",
-	    "b"
+        "b",
+        "b"
     ],
     pickaxe: [
         "aaa",

@@ -15,9 +15,9 @@
 New in 2019.08.06
 - Lamps and Inverted Lamps 
 
-This mod includes some world gen, gems with various properties and recipes for various tools and armour. Adds some decoration blocks that can be crafted from the gems too: block of gem and bricks. This is a first stab at a MinecraftPE mod and is based on Minecraft.AnotherGemsMod https://github.com/FredHappyface/MinecraftPE.AnotherGemsMod
+This mod includes some world gen, gems with various properties and recipes for various tools and armour. Adds some decoration blocks that can be crafted from the gems too: block of gem and bricks. This is a first stab at a MinecraftPE mod and is based on Minecraft.AnotherGemsMod https://github.com/FredHappyface/Minecraft.AnotherGemsMod
 
-Get it at BLANK
+Get it at https://icmods.mineprogramming.org/mod.php?id=421
 alternatively, you can build the project from source
 
 ## Crafting Recipes 

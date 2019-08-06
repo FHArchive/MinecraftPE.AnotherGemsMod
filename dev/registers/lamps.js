@@ -33,6 +33,38 @@ Block.registerDropFunction("agmLampInv", function(coords, blockID, blockData, le
 	return [];
 });
 
+
+function placeFunction(coords, item, block){
+	Game.prevent();
+	var x = coords.relative.x;
+	var y = coords.relative.y;
+	var z = coords.relative.z;
+	block = World.getBlockID(x, y, z);
+	if(GenerationUtils.isTransparentBlock(block)){
+		World.setBlock(x, y, z, item.id, item.data);
+		World.addTileEntity(x, y, z);
+	}
+
+}
+
+function swapBlock(block, targetBlock, setInverted){
+	var x = block.x, y = block.y, z = block.z;
+	block.selfDestroy();
+	var data = World.getBlock(x, y, z).data;
+	World.setBlock(x, y, z, BlockID[targetBlock], data);
+	var tile = World.addTileEntity(x, y, z);
+	tile.data.inverted = setInverted;
+}
+
+function destroy(block,coords){
+	var data = World.getBlock(coords.x, coords.y, coords.z).data;
+	if(block.data.inverted){
+		World.drop(coords.x, coords.y, coords.z, BlockID.agmLampInv, 1, data);
+	}else{
+		World.drop(coords.x, coords.y, coords.z, BlockID.agmLamp, 1, data);
+	}
+}
+
 /*
 This is a helpful site for recipes including vanilla items: 
 https://www.digminecraft.com/lists/item_id_list_pe.php
@@ -56,90 +88,55 @@ Callback.addCallback("PreLoaded", function(){
 
 TileEntity.registerPrototype(BlockID.agmLamp, {
 	defaultValues: {
-		inverted: false,
+		inverted: false
 	},
+	
 	
 	redstone: function(signal){
-		var x = this.x, y = this.y, z = this.z;
 		if(!this.data.inverted && signal.power){
-			this.selfDestroy();
-			var data = World.getBlock(x, y, z).data;
-			World.setBlock(x, y, z, BlockID.agmLampInv, data);
-			var tile = World.addTileEntity(x, y, z);
-			tile.data.inverted = false;
+			swapBlock(this, "agmLampInv", false)
+		
 		}
 		if(this.data.inverted && !signal.power){
-			this.selfDestroy();
-			var data = World.getBlock(x, y, z).data;
-			World.setBlock(x, y, z, BlockID.agmLampInv, data);
-			var tile = World.addTileEntity(x, y, z);
-			tile.data.inverted = true;
-		}
+			swapBlock(this, "agmLampInv", true)
+			
+		}	
 	},
+
 	
 	destroyBlock: function(coords, player){
-		var data = World.getBlock(coords.x, coords.y, coords.z).data;
-		if(this.data.inverted){
-			World.drop(coords.x, coords.y, coords.z, BlockID.agmLampInv, 1, data);
-		}else{
-			World.drop(coords.x, coords.y, coords.z, BlockID.agmLamp, 1, data);
-		}
+		destroy(this,coords);
 	}
 });
 
 TileEntity.registerPrototype(BlockID.agmLampInv, {
 	defaultValues: {
-		inverted: true,
+		inverted: true
 	},
 	
+		
 	redstone: function(signal){
-		var x = this.x, y = this.y, z = this.z;
 		if(!this.data.inverted && !signal.power){
-			this.selfDestroy();
-			var data = World.getBlockData(x, y, z);
-			World.setBlock(x, y, z, BlockID.agmLamp, data);
-			var tile = World.addTileEntity(x, y, z);
-			tile.data.inverted = false;
+			swapBlock(this, "agmLamp", false)
+
 		}
 		if(this.data.inverted && signal.power){
-			this.selfDestroy();
-			var data = World.getBlockData(x, y, z);
-			World.setBlock(x, y, z, BlockID.agmLamp, data);
-			var tile = World.addTileEntity(x, y, z);
-			tile.data.inverted = true;
+			swapBlock(this, "agmLamp", true)
+
 		}
+			
 	},
 	
 	destroyBlock: function(coords, player){
-		var data = World.getBlockData(coords.x, coords.y, coords.z);
-		if(this.data.inverted){
-			World.drop(coords.x, coords.y, coords.z, BlockID.agmLampInv, 1, data);
-		}else{
-			World.drop(coords.x, coords.y, coords.z, BlockID.agmLamp, 1, data);
-		}
+		destroy(this,coords);
 	}
 });
 
 Block.registerPlaceFunction("agmLamp", function(coords, item, block){
-	Game.prevent();
-	var x = coords.relative.x
-	var y = coords.relative.y
-	var z = coords.relative.z
-	block = World.getBlockID(x, y, z)
-	if(GenerationUtils.isTransparentBlock(block)){
-		World.setBlock(x, y, z, item.id, item.data);
-		World.addTileEntity(x, y, z);
-	}
+	placeFunction(coords, item, block);
 });
 
 Block.registerPlaceFunction("agmLampInv", function(coords, item, block){
-	Game.prevent();
-	var x = coords.relative.x
-	var y = coords.relative.y
-	var z = coords.relative.z
-	block = World.getBlockID(x, y, z)
-	if(GenerationUtils.isTransparentBlock(block)){
-		World.setBlock(x, y, z, item.id, item.data);
-		World.addTileEntity(x, y, z);
-	}
+	placeFunction(coords, item, block);
 });
+

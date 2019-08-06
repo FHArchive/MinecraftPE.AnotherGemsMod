@@ -6,7 +6,7 @@ for (var index = 0; index < GEMS_LEN; index++){
     var gem = GEMS[index]
     
     // Generate block
-    var BLOCK_ID_NAME = createIDName(gem, "block")
+    var BLOCK_ID_NAME = createIDName(gem, "block");
     IDRegistry.genBlockID(BLOCK_ID_NAME);
     Block.createBlock(BLOCK_ID_NAME, [
         {name: createNameReadable(gem, "block"), texture: [[createTexName(gem, "block"), 0]], inCreative: true}
@@ -17,7 +17,7 @@ for (var index = 0; index < GEMS_LEN; index++){
     
 
     // Generate bricks 
-    var BLOCK_ID_NAME = createIDName(gem, "bricks")
+    var BLOCK_ID_NAME = createIDName(gem, "bricks");
     IDRegistry.genBlockID(BLOCK_ID_NAME);
     Block.createBlock(BLOCK_ID_NAME, [
         {name: createNameReadable(gem, "bricks"), texture: [[createTexName(gem, "bricks"), 0]], inCreative: true}
@@ -32,7 +32,7 @@ for (var index = 0; index < GEMS_LEN; index++){
 // Recipes 
 Callback.addCallback("PreLoaded", function(){
     for (var index = 0; index < GEMS_LEN; index++){
-        var gem = GEMS[index]
+        var gem = GEMS[index];
         // Block
         Recipes.addShaped({id: BlockID[createIDName(gem, "block")], count: 1, data: 0}, ["xxx", "xxx", "xxx"], ["x", ItemID[gem], 0]);
 
@@ -41,4 +41,4 @@ Callback.addCallback("PreLoaded", function(){
 
         
     }
-})
+});

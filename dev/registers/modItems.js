@@ -4,7 +4,7 @@ registers/modItems.js generate the item forms of the gems: tools and armor
 
 var ToolProperties = {
     aquamarine: {
-        durability: 700, level: 3, efficiency: 7, damage: 2.5, enchantability: 10,     
+        durability: 700, level: 3, efficiency: 7, damage: 2.5, enchantability: 10   
 	},
 	galaxite: {
 		durability: 400, level: 2, efficiency: 5, damage: 2, enchantability: 8
@@ -17,8 +17,8 @@ var ToolProperties = {
 	},
 	zirconia: {
 		durability: 1000, level: 3, efficiency: 10, damage: 3, enchantability: 15
-	},
-}
+	}
+};
 
 var ArmorProperties = {
     aquamarine: {
@@ -51,7 +51,7 @@ var ArmorProperties = {
         chest: {armor : 8, texture: "armor/zirconia_layer_1.png"}, 
         leggings: {armor : 6, texture: "armor/zirconia_layer_2.png"}, 
         boots: {armor : 3, texture: "armor/zirconia_layer_1.png"}}
-}
+};
 
 for (var index = 0; index < GEMS_LEN; index++){
     var gem = GEMS[index]
@@ -68,12 +68,12 @@ for (var index = 0; index < GEMS_LEN; index++){
     ToolAPI.addToolMaterial(gem, {durability: ToolProperties[gem].durability, level: ToolProperties[gem].level, efficiency: ToolProperties[gem].efficiency, damage: ToolProperties[gem].damage, enchantability: ToolProperties[gem].enchantability});
 
     for (var tool_index = 0; tool_index < TOOLS_LEN; tool_index++){
-        var type = TOOLS[tool_index]
-        var ITEM_ID_NAME = createBlockIDName(gem, type)
+        var type = TOOLS[tool_index];
+        var ITEM_ID_NAME = createIDName(gem, type);
 
         // Create the tool item 
         IDRegistry.genItemID(ITEM_ID_NAME);
-        Item.createItem(ITEM_ID_NAME, createNameReadable(gem, type), {name: createBlockTexName(gem, type), meta: 0}, {stack: 1});
+        Item.createItem(ITEM_ID_NAME, createNameReadable(gem, type), {name: createTexName(gem, type), meta: 0}, {stack: 1});
         ToolAPI.setTool(ItemID[ITEM_ID_NAME], gem, ToolType[type]);
 
         
@@ -85,21 +85,21 @@ for (var index = 0; index < GEMS_LEN; index++){
     // Armor 
 
     for (var armor_index = 0; armor_index < ARMOR_LEN; armor_index++){
-        var type = ARMOR[armor_index]
-        var armorType = type
+        var type = ARMOR[armor_index];
+        var armorType = type;
         // For compatibility with my naming conventions 
         if (type === "helm"){
-            armorType = "helmet"
+            armorType = "helmet";
         }
         if (type === "chest"){
-            armorType = "chestplate"
+            armorType = "chestplate";
         }
 
-        var ITEM_ID_NAME = createBlockIDName(gem, type)
+        var ITEM_ID_NAME = createIDName(gem, type);
 
         // Create the armor item 
         IDRegistry.genItemID(ITEM_ID_NAME);
-        Item.createArmorItem(ITEM_ID_NAME, createNameReadable(gem, type), {name: createBlockTexName(gem, type)}, {type: armorType, armor: ArmorProperties[gem][type].armor, durability: ArmorProperties[gem].durability * ARMOR_MAX_DAM_RED[type], texture: ArmorProperties[gem][type].texture});
+        Item.createArmorItem(ITEM_ID_NAME, createNameReadable(gem, type), {name: createTexName(gem, type)}, {type: armorType, armor: ArmorProperties[gem][type].armor, durability: ArmorProperties[gem].durability * ARMOR_MAX_DAM_RED[type], texture: ArmorProperties[gem][type].texture});
 
         
 
@@ -110,26 +110,26 @@ for (var index = 0; index < GEMS_LEN; index++){
 Callback.addCallback("PreLoaded", function(){
     
     for (var index = 0; index < GEMS_LEN; index++){
-        var gem = GEMS[index]
+        var gem = GEMS[index];
 
         // Furnace from ore
-        Recipes.addFurnace(BlockID[createBlockIDName(gem, "ore")], ItemID[gem], 0);
+        Recipes.addFurnace(BlockID[createIDName(gem, "ore")], ItemID[gem], 0);
 
         // Item
-        Recipes.addShapeless({id: ItemID[gem], count: 9}, [{id: BlockID[createBlockIDName(gem, "block")]}])
+        Recipes.addShapeless({id: ItemID[gem], count: 9}, [{id: BlockID[createIDName(gem, "block")]}]);
 
         // Tools
-        for (var tool_index = 0; tool_index < TOOLS_LEN; tool_index++){
-            var type = TOOLS[tool_index]
+        for (var toolIndex = 0; toolIndex < TOOLS_LEN; toolIndex++){
+            var type = TOOLS[toolIndex]
             // Create the recipe for the tool 
-            Recipes.addShaped({id: ItemID[createBlockIDName(gem, type)], count: 1, data: 0}, TOOLS_RECIPES[type], ["a", ItemID[gem], 0, "b", 280, 0]);
+            Recipes.addShaped({id: ItemID[createIDName(gem, type)], count: 1, data: 0}, TOOLS_RECIPES[type], ["a", ItemID[gem], 0, "b", 280, 0]);
         }
 
         // Armor 
-        for (var armor_index = 0; armor_index < ARMOR_LEN; armor_index++){
-            var type = ARMOR[armor_index]
+        for (var armorIndex = 0; armorIndex < ARMOR_LEN; armorIndex++){
+            var type = ARMOR[armorIndex]
             // Create the recipe for the armor 
-            Recipes.addShaped({id: ItemID[createBlockIDName(gem, type)], count: 1, data: 0}, ARMOR_RECIPES[type], ["x", ItemID[gem], 0]);
+            Recipes.addShaped({id: ItemID[createIDName(gem, type)], count: 1, data: 0}, ARMOR_RECIPES[type], ["x", ItemID[gem], 0]);
 
         }
     }
