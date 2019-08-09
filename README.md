@@ -28,10 +28,8 @@ Crafting recipes are as in the Java Edition
 
 Block 
 ![Block ](https://raw.githubusercontent.com/FredHappyface/Minecraft.AnotherGemsMod/master/readme-assets/screenshots/crafting/block.PNG "Block ")
-e/Minecraft.AnotherGemsMod/master/readme-assets/screenshots/crafting/stairs.PNG "Stairs")
 Bricks
 ![Bricks](https://raw.githubusercontent.com/FredHappyface/Minecraft.AnotherGemsMod/master/readme-assets/screenshots/crafting/bricks.PNG "Bricks")
-Brick Slab
 Lamp 
 ![Lamp ](https://raw.githubusercontent.com/FredHappyface/Minecraft.AnotherGemsMod/master/readme-assets/screenshots/crafting/lamp.PNG "Lamp ")
 Inverted Lamp
