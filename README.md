@@ -1,15 +1,18 @@
 <p float="left">
-<img src="https://img.shields.io/github/languages/top/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Github top language">
-<img src="https://img.shields.io/codacy/grade/d90ed163cb9c430b9ad3de704dac1c0c.svg?style=flat-square" alt="Codacy grade">
-<img src="https://img.shields.io/codacy/coverage/d90ed163cb9c430b9ad3de704dac1c0c.svg?style=flat-square" alt="Codacy coverage">
-<img src="https://img.shields.io/github/repo-size/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Repository size">
-<img src="https://img.shields.io/github/issues/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Issues">
-<img src="https://img.shields.io/github/license/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="License">
-<img src="https://img.shields.io/github/commit-activity/m/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Commit activity">
-<img src="https://img.shields.io/github/last-commit/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Last commit">
+<a href="../../"><img src="https://img.shields.io/github/languages/top/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Github top language"></a>
+<a href="https://www.codacy.com/manual/FredHappyface/MinecraftPE.AnotherGemsMod"><img src="https://img.shields.io/codacy/grade/d90ed163cb9c430b9ad3de704dac1c0c.svg?style=flat-square" alt="Codacy grade"></a>
+<a href="https://www.codacy.com/manual/FredHappyface/MinecraftPE.AnotherGemsMod"><img src="https://img.shields.io/codacy/coverage/d90ed163cb9c430b9ad3de704dac1c0c.svg?style=flat-square" alt="Codacy coverage"></a>
+<a href="../../"><img src="https://img.shields.io/github/repo-size/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Repository size"></a>
+<a href="../../issues"><img src="https://img.shields.io/github/issues/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Issues"></a>
+<a href="/LICENSE.md"><img src="https://img.shields.io/github/license/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="License"></a>
+<a href="../../commits/master"><img src="https://img.shields.io/github/commit-activity/m/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Commit activity"></a>
+<a href="../../commits/master"><img src="https://img.shields.io/github/last-commit/fredhappyface/MinecraftPE.AnotherGemsMod.svg?style=flat-square" alt="Last commit"></a>
 </p>
 
 # MinecraftPE.AnotherGemsMod
+
+<img src="mod_icon-128.png" alt="Project Icon" width="100">
+
 - By FredHappyface
 
 New in 2019.08.06
